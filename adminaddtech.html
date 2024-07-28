@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Teacher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            background-image: url('https://gallery.yopriceville.com/var/albums/Backgrounds/Beach_Sand_and_Shells_Background.jpg?m=1433334144');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            margin: 60px 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .input-box {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333333;
+            background-color: #f5f5f5;
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+            font-style: italic;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .required {
+            color: red;
+        }
+
+        header{
+            background-color: #FFB3C1;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #FFB3C1;
+            color: #fff;
+            text-align: center;
+            padding: 2px 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            .navbar a {
+                padding: 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="navbar-brand" href="#">School Management</a>
+            <div class="navbar-links">
+                <a class="nav-link" href="Adminhome.html">Home</a>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Enter Teacher Details</h1>
+        <form action="#" method="post">
+            <div class="input-box">
+                <label for="fname">First Name <span class="required">*</span>:</label>
+                <input type="text" id="fname" name="fname" pattern="[A-Za-z]{2,}" required>
+            </div>
+            <div class="input-box">
+                <label for="lname">Last Name <span class="required">*</span>:</label>
+                <input type="text" id="lname" name="lname" pattern="[A-Za-z]{2,}" required>
+            </div>
+            <div class="input-box">
+                <label for="address">Address <span class="required">*</span>:</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            <div class="input-box">
+                <label for="dob">Date of Birth <span class="required">*</span>:</label>
+                <input type="date" id="dob" name="dob" max="2013-12-31" required>
+            </div>
+            <div class="input-box">
+                <label for="email">Email ID <span class="required">*</span>:</label>
+                <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required placeholder="Enter a valid email address">
+            </div>
+            <div class="input-box">
+                <label for="phone">Phone Number <span class="required">*</span>:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone number" pattern="[1-9][0-9]{9}" required>
+            </div>
+            <div class="input-box">
+                <label for="doj">Joining Date <span class="required">*</span>:</label>
+                <input type="date" id="doj" name="doj" max="2024-07-23" required>
+            </div>
+            <div class="input-box">
+                <label for="subID">Subject ID <span class="required">*</span>:</label>
+                <input type="text" id="subID" name="subID" required>
+            </div>
+            <div class="input-box">
+                <label for="teachID">Teacher ID <span class="required">*</span>:</label>
+                <input type="text" id="teachID" name="teachID" required>
+            </div>
+            <input type="submit" name="ADD" value="Submit">
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Student Login Panel. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

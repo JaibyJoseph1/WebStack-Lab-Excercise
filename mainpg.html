@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: url('https://i.pinimg.com/736x/cd/4b/54/cd4b54e4ac2950d1e18dffe5f056a625.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: rgba(244, 168, 161, 0.8); /* Semi-transparent Pink Sand */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            max-width: 150px;
+            vertical-align: middle;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 20px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 10px 20px; /* Increased padding for better button appearance */
+            background: #e36f6c; /* Darker Pink Sand */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background: #d4554c; /* Even Darker Pink Sand */
+            text-decoration: none;
+            transform: translateY(-3px); /* Slight lift effect */
+        }
+
+        nav ul li a:active {
+            background: #c43d3a; /* Even Darker Pink Sand for active state */
+            transform: translateY(1px); /* Slight depress effect */
+        }
+
+        main {
+            padding: 40px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0); /* Slightly transparent white */
+            padding: 30px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .container {
+            background: transparent; /* Pure transparent */
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 300px; /* Set fixed height for square boxes */
+            text-align: center;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .box img {
+            width: 100%;
+            height: 150px; /* Adjust height as needed */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .box h3 {
+            margin-top: 0;
+            color: #e36f6c; /* Darker Pink Sand */
+        }
+
+        .box p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #e36f6c; /* Darker Pink Sand */
+        }
+
+        form input,
+        form textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #e36f6c; /* Darker Pink Sand */
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #d4554c; /* Even Darker Pink Sand */
+        }
+
+        footer {
+            background-color: rgba(244, 168, 161, 0.8); /* Semi-transparent Pink Sand */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .star-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .star-button {
+            background-color: #ffd700; /* Gold color for star */
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .star-button:hover {
+            background-color: #f0c30f; /* Slightly darker gold */
+            transform: scale(1.1); /* Slightly larger on hover */
+        }
+
+        .star-button:active {
+            background-color: #e0b90f; /* Even darker gold for active state */
+            transform: scale(1); /* Return to normal size */
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .box-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            form input,
+            form textarea {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="https://logowik.com/content/uploads/images/brainstorm-creative.jpg" alt="School Logo">
+            <h1>School Management System </h1>
+            <nav>
+                <ul>
+                    
+                    <li><a href="admin login.html">Admin Login</a></li>
+                    <li><a href="#e-newspaper">E-NewsPaper</a></li>
+                    <li><a href="feedback pg.html">Feedback</a></li>
+                    <li><a href="#reference">Reference</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="box-container">
+                <div class="box">
+                    <img src="https://thumbs.dreamstime.com/b/our-vision-drawn-white-brick-wall-d-inscription-modern-illustation-blue-arrow-hand-icons-around-brickwall-89018617.jpg" alt="Vision Image">
+                    <h3>Our Vision</h3>
+                    <p>We aim to provide quality education and holistic development to all our students, preparing them for a successful future. Our vision includes fostering creativity, critical thinking, and a lifelong love of learning.</p>
+                </div>
+                <div class="box">
+                    <img src="https://www.shutterstock.com/image-vector/open-book-stair-graduation-cap-600nw-1185117667.jpg" alt="Academic Programs Image">
+                    <h3>Academic Programs</h3>
+                    <p>We offer a wide range of academic programs from primary to higher education, including specialized courses and extracurricular activities. Our programs are designed to cater to diverse learning needs and interests.</p>
+                </div>
+                <div class="box">
+                    <img src="https://ahduni.edu.in/site/assets/files/7325/760_x_540_amsom_faculty.1400x0.webp" alt="Faculty Image">
+                    <h3>Faculty</h3>
+                    <p>Our faculty consists of highly qualified and experienced professionals dedicated to fostering a supportive and challenging learning environment. They are committed to helping each student reach their full potential.</p>
+                </div>
+                <div class="box">
+                    <img src="https://storage.googleapis.com/zmg-geetanjali/images/1_(1).jpg" alt="Facilities Image">
+                    <h3>Facilities</h3>
+                    <p>Our school provides state-of-the-art facilities, including modern classrooms, a library, laboratories, and sports facilities to enhance student learning and growth. We strive to create an environment conducive to both academic and personal development.</p>
+                </div>
+            </div>
+            <div class="star-button-container">
+                <button class="star-button">⭐</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 School Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

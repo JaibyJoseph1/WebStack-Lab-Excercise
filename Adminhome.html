@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url("https://cdn.dribbble.com/users/2446970/screenshots/5883361/birdeye_001a.gif");
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #admin-details {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        #admin-details img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        #functions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .funct-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: rgba(189, 122, 122, 0.2);
+            text-align: center;
+            transition: background-color 0.3s ease;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .funct-item:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        a {
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="mainpg.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUS.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="admin-details" class="container">
+        <img src="https://thumbs.dreamstime.com/z/operator-icon-vector-isolated-white-background-operator-sign-operator-icon-vector-isolated-white-background-operator-134061068.jpg" alt="Teacher Image" width="100">
+        <div>
+            <h3>Name: Jaiby Joseph</h3>
+            <h4>Department: Administration</h4>
+            <h4>Admin ID: A001</h4>
+        </div>
+    </div>
+
+    <div id="functions" class="container">
+        <div class="funct-item">
+            <a href="adminaddtech.html">Add Teacher</a>
+        </div>
+        <div class="funct-item">
+            <a href="adminremteach.html">Remove Teacher</a>
+        </div>
+        <div class="funct-item">
+            <a href="adminaddstd.html">Add Student</a>
+        </div>
+        <div class="funct-item">
+            <a href="adminremstd.html">Remove Student</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

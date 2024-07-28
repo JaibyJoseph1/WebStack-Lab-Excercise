@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Admin Login Page</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L3Jhd3BpeGVsb2ZmaWNlNV9hX3RvcF92aWV3X3Bob3RvX29mX3NlYV9icmVha3Nfb25fdGhlX3Bpbmtfc2FuZF9kOWEzYmRlNy01MmE1LTRkYjctYWE0Yi02OTQ2MDMwNDc1ZGFfMS5qcGc.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            /*margin: 0;*/
+            padding: 70px;
+        }
+
+        .login-container {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            background-color:  rgba(255,255,255,0.3);
+            margin-top: 50px;
+        }
+         
+        label { 
+            display: block; 
+        } 
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            vertical-align: middle; 
+            position: relative; 
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+   
+        </style>
+    </head>
+    <body>
+        
+        <div class="login-container">
+            <h1>Admin Login</h1>
+            <form action="Adminhome.html" method="get">
+               <label for="userId">User ID:</label>
+               <input type="text" id="userId" name="userId" required>
+
+               <label for="password">Password:</label>
+               <input type="password" id="password" name="password" required>              
+
+                <button type="submit">Login</button>
+            </form>
+
+        </div>
+      
+    </body>
+</html>
