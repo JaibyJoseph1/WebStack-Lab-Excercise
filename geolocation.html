@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our School Location</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #678d70;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #map {
+            height: 60vh;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #6c8e74;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #86ad8e;
+            transform: scale(1.05);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .status-message {
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            background-color: #7ca586;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: sticky;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .fa-location-arrow {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Discover Elite School More here</h1>
+    </header>
+
+    <main class="container">
+        <div id="map"></div>
+        <button id="get-location" class="btn"><i class="fas fa-location-arrow"></i> Find My Location</button>
+        <p id="status" class="status-message"></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Elite . All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script>
+        // Coordinates for the college
+        const collegeLocation = [12.9279, 77.6271];
+        const collegeAddress = " Elite School, 7th Block, Koramangala, Bangalore, Karnataka, 560034";
+
+        // Initialize the map
+        const map = L.map('map').setView(collegeLocation, 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add marker for the college
+        L.marker(collegeLocation).addTo(map)
+            .bindPopup(`<strong>${collegeAddress}</strong>`)
+            .openPopup();
+
+        // Handle user location
+        document.getElementById('get-location').addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError, { timeout: 10000 });
+            } else {
+                document.getElementById('status').textContent = "Geolocation is not supported by this browser.";
+            }
+        });
+
+        function showPosition(position) {
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+            const userLocation = [userLatitude, userLongitude];
+
+            // Clear existing user marker if present
+            map.eachLayer(layer => {
+                if (layer instanceof L.Marker && layer.getPopup().getContent() === 'You are here') {
+                    map.removeLayer(layer);
+                }
+            });
+
+            // Add marker for the user's location
+            L.marker(userLocation, { icon: L.icon({ iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', iconSize: [30, 45] }) })
+                .addTo(map)
+                .bindPopup('You are here')
+                .openPopup();
+
+            // Center map on user's location
+            map.setView(userLocation, 14);
+
+            // Add a route to the college from the user's location
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(userLatitude, userLongitude),
+                    L.latLng(collegeLocation[0], collegeLocation[1])
+                ],
+                routeWhileDragging: true
+            }).addTo(map);
+
+            document.getElementById('status').textContent = "Your location has been found. Route added to the map!";
+        }
+
+        function showError(error) {
+            let message = "An error occurred.";
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    message = "You denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    message = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    message = "The request to get your location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    message = "An unknown error occurred.";
+                    break;
+            }
+            document.getElementById('status').textContent = message;
+        }
+    </script>
+</body>
+</html>
