@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Exam</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            background-image: url('https://www.hindustantimes.com/ht-img/img/2023/11/24/550x309/cat_care_thumb_1700822249833_1700822259379.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes full viewport height */
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: rgba(168, 100, 100, 0.7);
+        }
+
+        .navbar-brand, .nav-link {
+            color: rgba(22, 3, 3, 0.7) !important;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex: 1;  /* main content takes all remaining space */
+            padding: 20px;
+        }
+
+        #container {
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        #container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .fetch-button {
+            background-color: #009687;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .fetch-button:hover {
+            background-color: #00796b;
+        }
+
+        footer {
+            background-color: rgba(168, 100, 100, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; /* Pushes the footer to the bottom */
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Pet Cat</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="welcome.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="examRegist.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="examlist.html">View Cats</a>
+                    </li>
+                    <li class="nav-item"></li>
+                        <a class="nav-link" href="examAbt.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container" id="container"> 
+            <!-- Cat image will be inserted here -->
+        </div>
+        <div class="button-container">
+            <button class="fetch-button" id="getcat">Generate New Cat</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Pet Cat. All rights reserved.</p>
+    </footer>
+    
+    <script>
+    window.onload = () => {
+        var catButton = document.getElementById("getcat"); // Grabbing the button element by its ID
+
+        const catApi = "https://api.thecatapi.com/v1/images/search"; //  The Cat API URL, which returns random cat images
+
+        // Adding an event listener to the button that fetches a new cat image on click
+        catButton.addEventListener('click', async () => {
+            document.getElementById("container").innerHTML = ''; // Clearing the current image before loading a new one
+
+            await fetch(catApi).then((res) => {
+                res.json().then((data) => {
+                    var newcat = document.createElement("img"); // Creating a new img element for the fetched cat image
+                    newcat.src = data[0].url;  //Setting the img src to the new cat image URL from the API response
+                    newcat.alt = 'Random Cat'; // Adding alt text for accessibility
+                    document.getElementById("container").appendChild(newcat); // Appending the new image to the container
+                });
+            });
+        });
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global styles for body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url("https://cdn-prd.content.metamorphosis.com/wp-content/uploads/sites/6/2021/12/shutterstock_1608135394-1.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Styling for the form container */
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Styling for the header */
+        h1 {
+            text-align: center;
+            color: #f9f8f8;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for all input elements */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Styles for labels */
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        /* Styling for validation feedback */
+        .valid-feedback,
+        .invalid-feedback {
+            display: none; /* Hide by default */
+            align-items: center;
+            margin-top: 5px;
+            font-size: 14px; /* Adjust font size for feedback */
+        }
+
+        .valid-feedback {
+            color: green;
+        }
+
+        .invalid-feedback {
+            color: red;
+        }
+
+        .valid-feedback span,
+        .invalid-feedback span {
+            margin-left: 5px;
+        }
+
+        /* Feedback icons */
+        .feedback-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #009688;
+            text-decoration: none;
+        }
+
+        .fa-home {
+            font-size: 40px;
+            color: #575a5f;
+        }
+
+        /* Styles for submit and reset buttons */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 48%;
+            padding: 15px 25px; /* Increased padding for larger buttons */
+            margin: 10px 1%;
+            border: none;
+            border-radius: 6px; /* Slightly increased border-radius for a more modern look */
+            cursor: pointer;
+            display: inline-block;
+            font-size: 18px; /* Increased font size */
+            font-weight: bold; /* Bold text for better readability */
+        }
+
+        /* Styles for submit button */
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Styles for reset button */
+        input[type="reset"] {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        /* Hover effect for submit button */
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hover effect for reset button */
+        input[type="reset"]:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <a href="welcome.html" class="home-btn">
+        <i class="fas fa-home"></i>
+    </a>
+    <h1>Welcome to all Cat Lovers!</h1>
+    <div class="container">
+        <h1>Register Here</h1>
+        <form id="registrationForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            <div class="valid-feedback" id="fullNameValid"><img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" class="feedback-icon"><span>Valid</span></div>
+            <div class="invalid-feedback" id="fullNameInvalid"><img src="https://img.icons8.com/ios-filled/50/ff4d4d/cancel.png" class="feedback-icon"><span>Name must be at least 3 characters long and contain only letters and spaces.</span></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <div class="valid-feedback" id="emailValid"><img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" class="feedback-icon"><span>Valid</span></div>
+            <div class="invalid-feedback" id="emailInvalid"><img src="https://img.icons8.com/ios-filled/50/ff4d4d/cancel.png" class="feedback-icon"><span>Please enter a valid email address.</span></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <div class="valid-feedback" id="passwordValid"><img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" class="feedback-icon"><span>Valid</span></div>
+            <div class="invalid-feedback" id="passwordInvalid"><img src="https://img.icons8.com/ios-filled/50/ff4d4d/cancel.png" class="feedback-icon"><span>Password must be at least 8 characters long and contain both letters and numbers.</span></div>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+            <div class="valid-feedback" id="confirmPasswordValid"><img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" class="feedback-icon"><span>Passwords match</span></div>
+            <div class="invalid-feedback" id="confirmPasswordInvalid"><img src="https://img.icons8.com/ios-filled/50/ff4d4d/cancel.png" class="feedback-icon"><span>Passwords do not match.</span></div>
+
+            <label for="favbreed">Favourite Cat Breed:</label>
+            <select id="favbreed" name="favbreed">
+                <option value="">Select a breed</option>
+                <option value="aeg">Aegean</option>
+                <option value="siame">Siamese</option>
+                <option value="maine">Maine Coon</option>
+                <option value="persi">Persian</option>
+                <option value="beng">Bengal</option>
+                <option value="sphy">Sphynx</option>
+            </select>
+            <div class="valid-feedback" id="favbreedValid"><img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" class="feedback-icon"><span>Valid</span></div>
+            <div class="invalid-feedback" id="favbreedInvalid"><img src="https://img.icons8.com/ios-filled/50/ff4d4d/cancel.png" class="feedback-icon"><span>Please select a cat breed.</span></div>
+
+            <label for="quantity">Number of Cats Owned:</label>
+            <input type="number" id="quantity" name="quantity" min="0" required>
+            <div class="valid-feedback" id="quantityValid"><img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" class="feedback-icon"><span>Valid</span></div>
+            <div class="invalid-feedback" id="quantityInvalid"><img src="https://img.icons8.com/ios-filled/50/ff4d4d/cancel.png" class="feedback-icon"><span>Please enter a valid number of cats.</span></div>
+
+            <label for="catact">Favorite Cat-Related Activity:</label>
+            <select id="catact" name="catact" required>
+                <option value="">Select an activity</option>
+                <option value="play">Playing with cat</option>
+                <option value="groom">Grooming</option>
+                <option value="feed">Feeding</option>
+                <option value="train">Training</option>
+                <option value="other">Other</option>
+            </select>
+            <div class="valid-feedback" id="catactValid"><img src="https://img.icons8.com/ios-filled/50/4caf50/checkmark.png" class="feedback-icon"><span>Valid</span></div>
+            <div class="invalid-feedback" id="catactInvalid"><img src="https://img.icons8.com/ios-filled/50/ff4d4d/cancel.png" class="feedback-icon"><span>Please select an activity.</span></div>
+
+            <div class="button-container">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for form validation and feedback
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('registrationForm');
+
+            form.addEventListener('input', function (e) {
+                const field = e.target;
+                const value = field.value;
+                const fieldId = field.id;
+                let isValid = false;
+                let feedbackValid = document.getElementById(`${fieldId}Valid`);
+                let feedbackInvalid = document.getElementById(`${fieldId}Invalid`);
+
+                if (feedbackValid && feedbackInvalid) {
+                    switch (fieldId) {
+                        case 'fullName':
+                            isValid = /^[A-Za-z\s]{3,}$/.test(value);
+                            break;
+                        case 'email':
+                            isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                            break;
+                        case 'password':
+                            isValid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value);
+                            break;
+                        case 'confirmPassword':
+                            isValid = value === document.getElementById('password').value;
+                            break;
+                        case 'favbreed':
+                            isValid = value !== '';
+                            break;
+                        case 'quantity':
+                            isValid = value >= 0;
+                            break;
+                        case 'catact':
+                            isValid = value !== '';
+                            break;
+                    }
+
+                    if (isValid) {
+                        feedbackValid.style.display = 'flex';
+                        feedbackInvalid.style.display = 'none';
+                    } else {
+                        feedbackValid.style.display = 'none';
+                        feedbackInvalid.style.display = 'flex';
+                    }
+                }
+            });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+                let isFormValid = true;
+                
+                // Check if all fields are valid
+                ['fullName', 'email', 'password', 'confirmPassword', 'favbreed', 'quantity', 'catact'].forEach(id => {
+                    let field = document.getElementById(id);
+                    let feedbackValid = document.getElementById(`${id}Valid`);
+                    let feedbackInvalid = document.getElementById(`${id}Invalid`);
+                    if (!field || !feedbackValid || !feedbackInvalid) {
+                        isFormValid = false;
+                    } else if (!field.value || feedbackInvalid.style.display === 'flex') {
+                        isFormValid = false;
+                    }
+                });
+
+                if (isFormValid) {
+                    window.location.href = 'examcat.html'; // Redirect to new page
+                } else {
+                    alert('Please correct the errors in the form before submitting.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

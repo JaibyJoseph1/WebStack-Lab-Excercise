@@ -1,0 +1,56 @@
+[
+    {
+        "id": "aege",
+        "name": "Aegean",
+        "temperament": "Affectionate, social, Intelligent, Playful, Active",
+        "origin": "Greece",
+        "description": "Native to the Greek islands known as the Cyclades in the Aegean Sea, these are natural cats, meaning they developed without humans getting involved in their breeding. As a breed, Aegean Cats are rare, although they are numerous on their home islands. They are generally friendly toward people and can be excellent cats for families with children.",
+        "life_span": "9-12 years",
+        "url": "https://cdn2.thecatapi.com/images/ozEvzdVM-.jpg"
+    },
+    {
+        "id": "1",
+        "name": "Siamese",
+        "temperament": "Active, Social, Playful, Intelligent",
+        "origin": "Thailand",
+        "description": "The Siamese is one of the oldest and most recognizable cat breeds, known for their striking blue almond-shaped eyes, sleek bodies, and short coats.",
+        "life_span": "15-20 years",
+        "url": "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/the-siamese-cat-min.webp"
+    },
+    {
+        "id": "2",
+        "name": "Maine Coon",
+        "temperament": "Gentle, Friendly, Intelligent, Loyal",
+        "origin": "United States",
+        "description": "The Maine Coon is one of the largest domesticated cat breeds, known for their friendly, dog-like demeanor and tufted ears and paws.",
+        "life_span": "12-15 years",
+        "url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRwJwLUhV1PHc4sPeQHpLA2BaDHdW9ZL2RnB-FRcHsdCljuMmHa"
+    },
+    {
+        "id": "3",
+        "name": "Persian",
+        "temperament": "Affectionate, Quiet, Gentle",
+        "origin": "Iran",
+        "description": "Persians are known for their long, luxurious coats and round faces with flat noses. They have a calm demeanor and love to lounge.",
+        "life_span": "12-17 years",
+        "url": "https://cfa.org/wp-content/uploads/2024/03/2023-c19r-FursaceWalMart.webp"
+    },
+    {
+        "id": "4",
+        "name": "Bengal",
+        "temperament": "Energetic, Alert, Curious, Confident",
+        "origin": "United States",
+        "description": "The Bengal is a hybrid breed, developed by crossing domestic cats with Asian leopard cats, resulting in a distinctive wild appearance.",
+        "life_span": "12-16 years",
+        "url": "https://visitseaquest.com/wp-content/uploads/2022/11/unnamed-4.jpg"
+    },
+    {
+        "id": "5",
+        "name": "Sphynx",
+        "temperament": "Friendly, Playful, Social, Loving",
+        "origin": "Canada",
+        "description": "The Sphynx is a hairless breed, known for their outgoing and friendly nature. They are very people-oriented and require regular skin care.",
+        "life_span": "10-15 years",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/2_Sphynx_cats_sleeping_together.jpg"
+    }
+]
